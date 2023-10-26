@@ -1,8 +1,9 @@
 package com.example.logistics.security.config;
 
 import com.example.logistics.config.SecureUser;
+import com.example.logistics.exception.InvalidEmailException;
 import com.example.logistics.model.User;
-import com.example.logistics.user.UserService;
+import com.example.logistics.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +22,12 @@ public class AppConfig {
     @Bean
     public UserDetailsService userDetailsService(){
         return email -> {
-            User user = userService.loadUser(email);
+            User user = null;
+            try {
+                user = userService.loadUser(email);
+            } catch (InvalidEmailException e) {
+                throw new RuntimeException(e);
+            }
             return new SecureUser(user);
         };
     }

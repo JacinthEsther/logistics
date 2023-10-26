@@ -1,4 +1,4 @@
-package com.example.logistics.user;
+package com.example.logistics.service.user;
 
 import com.example.logistics.dto.ResetPasswordRequest;
 import com.example.logistics.dto.SignupDto;

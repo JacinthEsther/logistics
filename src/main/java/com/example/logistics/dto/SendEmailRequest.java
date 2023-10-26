@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class SendEmailRequest {
     private final String type = "email";
-    private final String from = "skyfitzz11@gmail.com";
+    private final String from = "logistics@gmail.com";
     private String message;
     private String subject;
     private String emailAddress;

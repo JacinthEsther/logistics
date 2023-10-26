@@ -2,7 +2,7 @@ package com.example.logistics.config;
 
 import com.example.logistics.exception.InvalidEmailException;
 import com.example.logistics.model.User;
-import com.example.logistics.user.UserService;
+import com.example.logistics.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

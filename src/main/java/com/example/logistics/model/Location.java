@@ -6,26 +6,16 @@ import jakarta.persistence.Table;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 
-import java.time.LocalDateTime;
-
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "user")
+@Table(name = "location")
 @ToString
-public class User {
+public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String userId;
-    private String name;
-    private String email;
-    private String password;
-    private boolean isActive;
-    private LocalDateTime dateCreated = LocalDateTime.now();
-
-    public User(String userId){
-        this.userId=userId;
-    }
+    private String locationName;
+    private float longitude;
+    private float latitude;
 }
-

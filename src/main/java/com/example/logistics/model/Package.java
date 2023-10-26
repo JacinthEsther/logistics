@@ -6,26 +6,20 @@ import jakarta.persistence.Table;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 
-import java.time.LocalDateTime;
+import java.math.BigDecimal;
 
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "user")
+@Table(name = "package")
 @ToString
-public class User {
+public class Package {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String userId;
-    private String name;
-    private String email;
-    private String password;
-    private boolean isActive;
-    private LocalDateTime dateCreated = LocalDateTime.now();
-
-    public User(String userId){
-        this.userId=userId;
-    }
+    private String packageName;
+    private String origin;
+    private String destination;
+    private String optimalRoute;
+    private BigDecimal cost;
 }
-

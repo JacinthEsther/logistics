@@ -1,4 +1,4 @@
-package com.example.logistics.user;
+package com.example.logistics.service.user;
 
 import com.example.logistics.config.SecureUser;
 import com.example.logistics.dto.AuthenticationResponse;
@@ -49,8 +49,7 @@ public class AuthServiceImpl implements AuthService {
                 User foundUser = userRepository.findByEmail(loginDto.getEmail().toLowerCase()).orElseThrow(() -> new InvalidModuleDescriptorException("user not found"));
                 SecureUser user = new SecureUser(foundUser);
                 String jwtToken = jwtService.generateToken(user);
-//                String fullName = foundUser.getFirstname() + " " + foundUser.getLastname();
-                return AuthenticationResponse.of(jwtToken, user.getUserId(),  foundUser.getEmail());
+                return AuthenticationResponse.of(jwtToken, user.getUserId(), foundUser.getName(), foundUser.getEmail());
             }
             throw new InvalidEmailException("Your account has not been verified !!!");
         }
